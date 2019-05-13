@@ -9,6 +9,7 @@ error_reporting(E_ALL);
 
 //Required file
 require_once('vendor/autoload.php');
+require_once('model/validation.php');
 
 //Instantiate Fat-Free
 $f3 = Base::instance();
@@ -39,11 +40,13 @@ $f3->route('GET|POST /survey', function($f3) {
         $f3->set('name', $name);
         $f3->set('options', $options);
 
-        // no validation yet
-        $_SESSION['name'] = $name;
-        $_SESSION['options'] = $options;
+        if(validForm()) // validates form data
+        {
+            $_SESSION['name'] = $name;
+            $_SESSION['options'] = $options;
 
-        $f3->reroute('/summary');
+            $f3->reroute('/summary');
+        }
     }
 
     $view = new Template();

@@ -12,14 +12,18 @@
 
         <label>
             Name
-            <input type="text" name="name">
+            <input type="text" name="name" value="{{ @name }}">
         </label>
         <br>
 
         <p> Check all that apply: <br><br>
         <repeat group="{{ @checkOptions }}" value="{{ @currentOption }}">
             <label>
-                <input type="checkbox" name="options[]" value="{{ @currentOption }}">
+                <input type="checkbox" name="options[]" value="{{ @currentOption }}"
+                <check if="{{ !empty(@options) && in_array(@currentOption, @options) }}">
+                    checked="checked"
+                </check>
+                >
                 {{ @currentOption }}
             </label><br>
         </repeat>
