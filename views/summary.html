@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Midterm Summary</title>
+</head>
+<body>
+
+    <h1>Midterm Summary</h1>
+    <h2>Thank you for taking the survey, {{ @SESSION.name }}</h2><br>
+
+    <h2>Your Answers:</h2>
+
+    <p>
+        <repeat group="{{ @SESSION.options }}" value="{{ @currentOption }}">
+            {{ @currentOption }},
+        </repeat>
+    </p>
+
+</body>
+</html>
