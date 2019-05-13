@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Midterm Survey</title>
+</head>
+<body>
+    <h1>Midterm Survey</h1>
+
+    <form method="POST" action="#">
+
+        <label>
+            Name
+            <input type="text" name="name">
+        </label>
+        <br>
+
+        <p> Check all that apply: <br><br>
+        <repeat group="{{ @checkOptions }}" value="{{ @currentOption }}">
+            <label>
+                <input type="checkbox" name="options[]" value="{{ @currentOption }}">
+                {{ @currentOption }}
+            </label><br>
+        </repeat>
+        </p>
+
+        <input type="submit">
+
+    </form>
+</body>
+</html>
