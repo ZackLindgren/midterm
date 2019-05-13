@@ -13,20 +13,27 @@
         <label>
             Name
             <input type="text" name="name" value="{{ @name }}">
+            <check if="{{ @errors['name'] }}">
+                <span>{{ @errors['name'] }}</span>
+            </check>
         </label>
         <br>
 
-        <p> Check all that apply: <br><br>
-        <repeat group="{{ @checkOptions }}" value="{{ @currentOption }}">
-            <label>
-                <input type="checkbox" name="options[]" value="{{ @currentOption }}"
-                <check if="{{ !empty(@options) && in_array(@currentOption, @options) }}">
-                    checked="checked"
-                </check>
-                >
-                {{ @currentOption }}
-            </label><br>
-        </repeat>
+        <p> Check all that apply:
+            <check if="{{ @errors['options'] }}">
+                <span>{{ @errors['options'] }}</span>
+            </check><br><br>
+
+            <repeat group="{{ @checkOptions }}" value="{{ @currentOption }}">
+                <label>
+                    <input type="checkbox" name="options[]" value="{{ @currentOption }}"
+                    <check if="{{ !empty(@options) && in_array(@currentOption, @options) }}">
+                        checked="checked"
+                    </check>
+                    >
+                    {{ @currentOption }}
+                </label><br>
+            </repeat>
         </p>
 
         <input type="submit">
