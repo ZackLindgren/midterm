@@ -1,0 +1,12 @@
+{
+  "name": "zlindgren/it328/midterm",
+  "authors": [
+    {
+      "name": "Zachary Lindgren",
+      "email": "zlindgren@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
